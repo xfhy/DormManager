@@ -33,8 +33,6 @@ import com.student.AlterPasswrd;
  * 
  */
 public class WelManager {
-
-	//String account = null;  //账号
 	
 	// 主窗口
 	JFrame mainFrame = new JFrame("宿舍管理员界面");
@@ -66,7 +64,6 @@ public class WelManager {
 
 	// 构造方法
 	public WelManager() {
-		//this.account = account;
 		init();
 	}
 

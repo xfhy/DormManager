@@ -1,0 +1,30 @@
+public class StuAdmission {
+	
+	JFrame mainFrame = new JFrame("新生入住登记");
+	
+	//构造方法
+	public StuAdmission() {
+		init();
+	}
+
+	//初始化
+	private void init() {
+		
+		mainFrame.setSize(800, 500);
+		mainFrame.setLocation(100, 100);
+		mainFrame.setResizable(false); // 窗口大小不可变
+		showUI();
+	}
+
+	//显示UI界面
+	private void showUI() {
+		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		mainFrame.setVisible(true);
+	}
+
+	// 主函数
+	public static void main(String[] args) {
+		new StuAdmission();
+	}
+
+}
