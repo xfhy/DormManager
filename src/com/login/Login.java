@@ -35,7 +35,7 @@ import com.student.StudentInfo;
  * 
  * @author XFHY
  * 
- * 8.18:完成宿舍管理员修改密码,注销,退出,关于作者   新建Manager和Student类,用户暂存登录成功用户的属性.注销时销毁(初始化)该类
+ * 8.18:完成宿舍管理员修改密码,注销,退出,关于作者   新建Manager和PrivaStudent类,用户暂存登录成功用户的属性.注销时销毁(初始化)该类
  * 
  */
 public class Login {
@@ -221,7 +221,8 @@ public class Login {
 		//判断是何种人员类型
 		if(type.equals("学生")){
 			loginJframe.dispose();   //关闭此窗口
-			Student.setAccount(userText.getText());
+			//Student.setAccount(userText.getText());
+			Student.setTempAccount(userText.getText());
 			new StudentInfo();   //调用显示学生信息的界面
 		} else if(type.equals("宿舍管理员")){
 			loginJframe.dispose();   //关闭此窗口

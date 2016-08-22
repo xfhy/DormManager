@@ -203,12 +203,12 @@ public class WelManager {
 		new WelManager();
 	}
 
-	    /*--------------------未完成---------------------*/
 	// 新生入住 菜单 监听器
 	class StuArriListener implements ActionListener {
 
 		public void actionPerformed(ActionEvent arg0) {
-			JOptionPane.showMessageDialog(null, "新生入住");
+			//JOptionPane.showMessageDialog(null, "新生入住");
+			new StuAdmission();
 		}
 
 	}

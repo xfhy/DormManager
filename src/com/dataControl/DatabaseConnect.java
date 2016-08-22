@@ -32,7 +32,10 @@ public class DatabaseConnect {
 		
 	}
 	
-	// 连接数据库
+	/**
+	 *  连接数据库
+	 * @return
+	 */
 	public static Connection connDatabase() {
 		Connection conn = null;
 		/*

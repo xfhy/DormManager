@@ -22,7 +22,7 @@ import javax.swing.JTextField;
  */
 public class StudentInfo{
 	
-	//String account = null;  //学生学号
+	Student student = new Student();
 	
 	JFrame mainFrame = new JFrame("学生个人信息");
 	
@@ -129,13 +129,13 @@ public class StudentInfo{
 	 * 得到学生的数据,并设置到控件上
 	 */
 	private void getStudentData(){
-		idText.setText(Student.getAccount());
+		idText.setText(Student.getTempAccount());
 		
 		//如果用户是第一次进来,则需要从数据库加载数据       如果用户是第二次进来(中间耽搁了,比如去修改了密码回来),则去else那里
-		if( Student.getName().equals("") ){
+		if( student.getName().equals("") ){
 			//从GetStudentInfo的静态方法getStudentInfo()中获取带有数据的Object数组
 			//getStudentInfo():通过连接数据库,获取某个学生信息,确定学生用id  返回带有学生信息的Object[]数组
-			Object[] data = StudentOperate.getStudentInfo(Student.getAccount());
+			Object[] data = StudentOperate.getStudentInfo(Student.getTempAccount());
 			if(data[0] != null){   //如果数据库连接成功并返回有效数据
 				//分别设置控件的值
 				nameText.setText(data[0].toString());
@@ -146,12 +146,12 @@ public class StudentInfo{
 				roomText.setText(data[5].toString());
 				
 				//将数据放到Student类中暂存    万一有用呢
-				Student.setName(nameText.getText());
-				Student.setSex(sexText.getText());
-				Student.setClassroom(classText.getText());
-				Student.setCollege(facultyText.getText());
-				Student.setBed(bedText.getText());
-				Student.setRoomnum(roomText.getText());
+				student.setName(nameText.getText());
+				student.setSex(sexText.getText());
+				student.setClassroom(classText.getText());
+				student.setCollege(facultyText.getText());
+				student.setBed(bedText.getText());
+				student.setRoomnum(roomText.getText());
 			} else {
 				nameText.setText("未获取到数据");
 				sexText.setText("未获取到数据");
@@ -162,12 +162,12 @@ public class StudentInfo{
 			}
 		} else {   //如果用户是第二次进来(中间耽搁了,比如去修改了密码回来),则不用再去从数据库中获取数据,直接从Student类中取出来就行
 			//分别设置控件的值
-			nameText.setText(Student.getName());
-			sexText.setText(Student.getSex());
-			classText.setText(Student.getClassroom());
-			facultyText.setText(Student.getCollege());
-			bedText.setText(Student.getBed());
-			roomText.setText(Student.getRoomnum());
+			nameText.setText(student.getName());
+			sexText.setText(student.getSex());
+			classText.setText(student.getClassroom());
+			facultyText.setText(student.getCollege());
+			bedText.setText(student.getBed());
+			roomText.setText(student.getRoomnum());
 		}
 		
 	}
@@ -177,7 +177,7 @@ public class StudentInfo{
 		public void actionPerformed(ActionEvent arg0) {
 			
 			 //调用修改密码的界面      参数:用户类型,账号
-			new AlterPasswrd(Student.getStaffType(),Student.getAccount());  
+			new AlterPasswrd(Student.getStaffType(),Student.getTempAccount());  
 		}
     }
     
