@@ -203,7 +203,9 @@ public class WelManager {
 		new WelManager();
 	}
 
-	// 新生入住 菜单 监听器
+	/**
+	 * 新生入住 菜单 监听器
+	 */
 	class StuArriListener implements ActionListener {
 
 		public void actionPerformed(ActionEvent arg0) {
@@ -213,12 +215,14 @@ public class WelManager {
 
 	}
 
-	     /*--------------------未完成---------------------*/
-	// 查询删除 菜单 监听器
+	/**
+	 *  查询删除 菜单 监听器
+	 */
 	class StuQuDeListener implements ActionListener {
 
 		public void actionPerformed(ActionEvent arg0) {
-			JOptionPane.showMessageDialog(null, "查询删除");
+			//JOptionPane.showMessageDialog(null, "查询删除");
+			new StuQueryDel();
 		}
 
 	}
