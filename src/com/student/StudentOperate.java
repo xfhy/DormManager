@@ -20,7 +20,7 @@ import com.dataControl.DatabaseConnect;
 public class StudentOperate {
 	
 	/**
-	 * 通过连接数据库,获取某个学生信息,确定学生用id
+	 * 通过连接数据库,查询,获取某个学生信息,确定学生用id
 	 * @param id 学生学号
 	 *    返回带有学生信息的Object[]数组
 	 */
@@ -56,7 +56,7 @@ public class StudentOperate {
 				data[5] = resSet.getString("roomnum");  //寝室编号
 			} else {  
 				//既然之前能够登录,则说明之前数据库是可以连接的,现在却查不到该用户,则说明可能用户把数据库关闭了,或者其他原因
-				JOptionPane.showMessageDialog(null,"数据库出现故障,忽然连接不上啦....");
+				JOptionPane.showMessageDialog(null,"未查询到该学生的信息....");
 			}
 		} catch (SQLException e) {
 			JOptionPane.showMessageDialog(null,"数据库访问出错啦! ! !");

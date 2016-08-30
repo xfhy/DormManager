@@ -29,7 +29,7 @@ import com.dataControl.DatabaseConnect;
  * 2016年8月20日16:34:04 新生入住
  * 
  * @author XFHY
- * 
+ *  
  */
 public class StuAdmission {
 
@@ -317,13 +317,13 @@ public class StuAdmission {
 	}
   
 	//添加学生  按钮  监听器
-	/*-----------------未完成-----------------*/
 	// 添加学生按钮监听器
 	class AddStuListener implements ActionListener {
 
 		public void actionPerformed(ActionEvent arg0) {
-			checkFirst(); // 执行添加前初步检查 判断用户填的信息是否正确(未连接数据库)
-			addStu(); // 添加学生信息到数据库
+			if(checkFirst()){   // 执行添加前初步检查 判断用户填的信息是否正确(未连接数据库)
+				addStu(); // 添加学生信息到数据库
+			}
 		}
 
 	}
@@ -359,7 +359,7 @@ public class StuAdmission {
 
 	//初步检查用户输入是否正确   未连接数据库
 	// 执行添加前初步检查 判断用户填的信息是否正确(未连接数据库)
-	private void checkFirst() {
+	private boolean checkFirst() {
 
 		// 判断用户是否有哪一项留空 或者哪一项没选
 		if (idText.getText().equals("") || nameText.getText().equals("")
@@ -370,7 +370,7 @@ public class StuAdmission {
 				|| floorChooser.getSelectedItem().toString().equals("请选择楼层")
 				|| roomChooser.getSelectedItem().toString().equals("请选择寝室")) {
 			JOptionPane.showMessageDialog(null, "亲,不能留空或者哪一项不选哦~~");
-			return;
+			return false;
 		}
 
 		// 姓名的正则表达式 ^:行的开头 [\u4e00-\u9fa5]{2,8}:汉字2~8个字 |:或者
@@ -379,7 +379,9 @@ public class StuAdmission {
 		boolean isName = nameText.getText().matches(nameRegex); // 判断用户输入的是否是正确的姓名
 		if (!isName) {
 			JOptionPane.showMessageDialog(null, "亲,您输入的姓名有误哦~~");
+			return false;
 		}
+		return true;
 	}
 
 	//添加学生到数据库

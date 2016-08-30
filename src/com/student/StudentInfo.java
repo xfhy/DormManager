@@ -124,6 +124,7 @@ public class StudentInfo{
 		mainFrame.setVisible(true);
 	}
 
+
 	
 	/**
 	 * 得到学生的数据,并设置到控件上

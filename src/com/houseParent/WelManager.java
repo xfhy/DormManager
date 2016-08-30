@@ -232,7 +232,8 @@ public class WelManager {
 	class StuAlteListener implements ActionListener {
 
 		public void actionPerformed(ActionEvent arg0) {
-			JOptionPane.showMessageDialog(null, "修改信息");
+			//JOptionPane.showMessageDialog(null, "修改信息");
+			new StuRevise();
 		}
 
 	}
