@@ -165,11 +165,11 @@ public class StuRevise {
 	}
 
 	// 主函数
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		//设置全局字体                                               参数:字体,粗体,大小
 		CommonOperate.InitGlobalFont(new Font("宋体", Font.BOLD, 20));
 		new StuRevise();
-	}
+	}*/
 	
 	/**
 	 * 初始化时需要隐藏一些UI

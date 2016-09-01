@@ -57,6 +57,8 @@ public class StuQueryDel {
 	private ResultSet resultSet;
 	private Connection conn;
 	private PreparedStatement preState;
+	public static final int JTABLE_COLUMN_COUNTS = 7;  //JTable列数
+	
 	/**
 	 * 定义一维数组作为列标题
 	 */
@@ -91,7 +93,7 @@ public class StuQueryDel {
 		studentTableModel.setStudent(stuList);   //初始化TableModel
 		roomTable.setModel(studentTableModel);   //设置JTable的TableModel
 		
-		//进制表格;列与列之间交换
+		//禁止表格列与列之间交换
 		JTableHeader tableHeader =roomTable.getTableHeader();
 		tableHeader.setReorderingAllowed(false);
 		
@@ -121,27 +123,6 @@ public class StuQueryDel {
 		new StuQueryDel();
 	}
 	
-	/**
-	 * 获取需要插入到JTable中的所有行的信息
-	 * @param stuList  装有学生信息的List集合
-	 * @return  返回封装成二维数组的学生信息Object[][]数组
-	 */
-	private Object[][] getRowInfo(List<Student> stuList){
-		Object[][] allStuInfo = new Object[stuList.size()][7];
-		
-		for (int i=0; i < stuList.size(); i++) {
-			Student student = stuList.get(i);
-			allStuInfo[i][0] = student.getAccount();
-			allStuInfo[i][1] = student.getName();
-			allStuInfo[i][2] = student.getSex();
-			allStuInfo[i][3] = student.getClassroom();
-			allStuInfo[i][4] = student.getCollege();
-			allStuInfo[i][5] = student.getBed();
-			allStuInfo[i][6] = student.getRoomnum();
-		}
-		
-		return allStuInfo;
-	}
 	
 	/**
 	 * 添加所有的学生信息到JTable   
@@ -226,7 +207,7 @@ public class StuQueryDel {
 		
 		//返回JTable的列数
 		public int getColumnCount() {
-			return 7;
+			return JTABLE_COLUMN_COUNTS;
 		}
 
 		//返回JTable的行数

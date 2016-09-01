@@ -227,8 +227,10 @@ public class WelManager {
 
 	}
 
-	     /*--------------------未完成---------------------*/
-	// 修改信息 菜单 监听器
+	/**
+	 * 修改学生信息 菜单 监听器
+	 *
+	 */
 	class StuAlteListener implements ActionListener {
 
 		public void actionPerformed(ActionEvent arg0) {
