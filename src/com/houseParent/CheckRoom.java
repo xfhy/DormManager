@@ -51,6 +51,9 @@ public class CheckRoom {
 	private ResultSet resultSet;
 	private Connection conn;
 	private PreparedStatement preState;
+	/**
+	 * 表格的列数
+	 */
 	public static final int JTABLE_COLUMN_COUNTS = 3;
 	RoomTableModel roomTableModel = new RoomTableModel();
 	List<CheckRoomRecord> checkRoomRecordList = new ArrayList<CheckRoomRecord>();
@@ -289,7 +292,7 @@ public class CheckRoom {
 		cal.get(Calendar.DAY_OF_MONTH)+" "+cal.get(Calendar.HOUR_OF_DAY)+":"+cal.get(Calendar.MINUTE);
 		//System.out.println(dateinfo);
 		
-		String sql = "insert into insp_bedr values(?,?,?)";
+		String sql = "insert into insp_bedr(roomnum,complete,dateinfo) values(?,?,?)";
 		
 		if(conn != null){
 			try {
