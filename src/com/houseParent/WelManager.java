@@ -240,22 +240,20 @@ public class WelManager {
 
 	}
  
-	    /*--------------------未完成---------------------*/
 	// 查寝 菜单 监听器
 	class CheckRoListener implements ActionListener {
 
 		public void actionPerformed(ActionEvent arg0) {
-			JOptionPane.showMessageDialog(null, "查寝");
+			new CheckRoom();
 		}
 
 	}
 
-	    /*--------------------未完成---------------------*/
 	// 卫生检查 菜单 监听器
 	class SanInspListener implements ActionListener {
 
 		public void actionPerformed(ActionEvent arg0) {
-			JOptionPane.showMessageDialog(null, "卫生检查");
+			new CheckHealth();
 		}
 
 	}

@@ -45,6 +45,7 @@ public class CheckRoom {
 	JComboBox<String> isFullRoomBobox = new JComboBox<String>();
 	//添加记录按钮
 	JButton addCheckRoRecord = new JButton("添加查寝记录");
+	JButton exitBtn = new JButton("退出");
 	
 	JTable roomTable = new JTable();
 	private JScrollPane scrollPane;
@@ -80,14 +81,17 @@ public class CheckRoom {
 		roomNumBobox.setBounds(90, 10, 100, 30);
 		isFullCountLabel.setBounds(230, 10, 150, 30);
 		isFullRoomBobox.setBounds(370, 10, 70, 30);
-		addCheckRoRecord.setBounds(480, 10, 160, 30);
+		addCheckRoRecord.setBounds(480, 10, 160, 40);
+		exitBtn.setBounds(680,10,80,40);
 		mainFrame.add(roomNumLabel);
 		mainFrame.add(roomNumBobox);
+		mainFrame.add(exitBtn);
 		mainFrame.add(isFullCountLabel);
 		mainFrame.add(isFullRoomBobox);
 		mainFrame.add(addCheckRoRecord);
 		
 		addCheckRoRecord.addActionListener(new AddCheckRoRecordListener());
+		exitBtn.addActionListener(new ExitBtnListener());
 		
 		roomTable.setModel(roomTableModel);   //设置TableModel
 		roomTable.setRowHeight(30);           //设置JTable行高
@@ -138,12 +142,12 @@ public class CheckRoom {
 		mainFrame.setVisible(true);
 	}
 
-	// 主函数
+	/*// 主函数
 	public static void main(String[] args) {
 		// 设置全局字体 参数:字体,粗体,大小
 		CommonOperate.InitGlobalFont(new Font("宋体", Font.BOLD, 20));
 		new CheckRoom();
-	}
+	}*/
 
 	/**
 	 * 扩展AbstractTableModel，用于将一个List<CheckRoomRecord>集合包装成TableModel
@@ -275,6 +279,17 @@ public class CheckRoom {
 
 		}
 
+	}
+	
+	/**
+	 * 退出按钮监听器
+	 */
+	class ExitBtnListener implements ActionListener {
+
+		public void actionPerformed(ActionEvent arg0) {
+			mainFrame.dispose();   //关闭当前窗口
+		}
+		
 	}
 	
 	/**

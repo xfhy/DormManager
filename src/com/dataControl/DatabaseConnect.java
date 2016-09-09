@@ -67,7 +67,7 @@ public class DatabaseConnect {
 			JOptionPane.showMessageDialog(null, "驱动加载失败");
 		} catch (SQLException e) {
 			e.printStackTrace();
-			JOptionPane.showMessageDialog(null, "数据库连接失败! ! !\n 请确保已开启SQL Server服务");
+			JOptionPane.showMessageDialog(null, "数据库连接失败! ! !\n 请确保已开启数据库服务");
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 			JOptionPane.showMessageDialog(null, "配置文件未找到..");

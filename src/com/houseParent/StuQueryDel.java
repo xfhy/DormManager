@@ -25,6 +25,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.JTableHeader;
+import javax.swing.table.TableColumn;
 
 import com.dataControl.DatabaseConnect;
 import com.student.Student;
@@ -92,7 +93,8 @@ public class StuQueryDel {
 		stuList = getAllStuInfo("");   //初始化List集合,这些信息是全部学生的信息(不单指哪个寝室)   需要添加到JTable中的
 		studentTableModel.setStudent(stuList);   //初始化TableModel
 		roomTable.setModel(studentTableModel);   //设置JTable的TableModel
-		
+		roomTable.setRowHeight(30);           //设置JTable行高
+		setColumnWidth(4,250,250,250);
 		//禁止表格列与列之间交换
 		JTableHeader tableHeader =roomTable.getTableHeader();
 		tableHeader.setReorderingAllowed(false);
@@ -106,7 +108,7 @@ public class StuQueryDel {
 		
 		mainFrame.add(topPanel,BorderLayout.NORTH);
 		mainFrame.add(scrollPane,BorderLayout.CENTER);
-		mainFrame.setSize(800, 500);
+		mainFrame.setSize(900, 500);
 		mainFrame.setLocation(100, 100);
 		mainFrame.setResizable(false); // 窗口大小不可变
 		showUI();
@@ -123,6 +125,16 @@ public class StuQueryDel {
 		new StuQueryDel();
 	}
 	
+	/**
+	 * 设置某一列的列宽 
+	 * 参数:某一列,首选宽度,最大宽度,最小宽度
+	 */
+	private void setColumnWidth(int xColumn,int columnPreferredWidth,int columnMaxWidth,int columnMinWidth){
+		TableColumn tempColumn = roomTable.getColumnModel().getColumn(xColumn);   //获得JTable的某一列
+		tempColumn.setPreferredWidth(columnPreferredWidth);   //设置首选宽度
+		tempColumn.setMaxWidth(columnMaxWidth);               //设置最大宽度
+		tempColumn.setMinWidth(columnMinWidth);               //设置最小宽度
+	}
 	
 	/**
 	 * 添加所有的学生信息到JTable   
